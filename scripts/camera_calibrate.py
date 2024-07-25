@@ -37,7 +37,8 @@ objp[:, :2] = np.mgrid[
 # Need a set of images or a video taken with the camera you want to calibrate
 # I'm using a set of images taken with the camera with the naming convention:
 # 'camera-pic-of-chessboard-<NUMBER>.jpg'
-images = glob.glob("./pupil_glasses_calibration_images/*.png")
+# Assuming the images are JPEGs. Change '*.jpg' to '*.png' if your images are PNG files.
+images = glob.glob("./scripts/camera_calibration/old_webcam_calibration_images/*.jpg")
 # All images used should be the same size, which if taken with the same camera shouldn't be a problem
 imageSize = None  # Determined at runtime
 

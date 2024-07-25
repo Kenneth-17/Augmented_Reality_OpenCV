@@ -10,12 +10,16 @@ def prepare_template(path, label):
     return (image, kp, des, label)
 
 templates = [
-    prepare_template('template_1.jpg', 'Image 1'), 
-    prepare_template('template_2.jpg', 'Image 2')
+    prepare_template('template_closed.png', 'Gripper Closed'), 
+    prepare_template('template_open.png', 'Gripper Open')
 ]
 
-camera_matrix = np.array([[800, 0, 320], [0, 800, 240], [0, 0, 1]], dtype=float)
-dist_coeffs = np.zeros(4)  # Assuming no lens distortion
+# Use the actual calibration data
+camera_matrix = np.array([[1.12246945e+03, 0.00000000e+00, 4.71182564e+02],
+                          [0.00000000e+00, 1.12908270e+03, 3.99513697e+02],
+                          [0.00000000e+00, 0.00000000e+00, 1.00000000e+00]])
+
+dist_coeffs = np.array([0.17334803, -0.94422561, 20.00945764, -112.661219])  # Assuming these are the radial and tangential distortion coefficients
 
 sift = cv2.SIFT_create(nfeatures=1000)
 FLANN_INDEX_KDTREE = 1
@@ -55,7 +59,7 @@ def feature_match(img, templates):
 
     return best_img
 
-cap = cv2.VideoCapture(1)
+cap = cv2.VideoCapture(1)  # Update camera index if necessary
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
