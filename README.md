@@ -19,7 +19,7 @@ What you need to install the software:
 ```bash
 pip install opencv-python
 pip install numpy
-```s
+```
 ### Usage
 
 To use this application, you need to provide an image of the marker and the image you want to overlay. Place these images in the project directory and specify their paths in the script. When you run the script, point your webcam at the marker to see the AR effect.
