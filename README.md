@@ -26,8 +26,8 @@ To use this application, you need to provide an image of the marker and the imag
 
 ### Built With
 
-    Python - The programming language used.
-    OpenCV - The computer vision library used.
+   - **Python** - The programming language used.
+   - **OpenCV** - The computer vision library used.
 
 ### Contributing
 
